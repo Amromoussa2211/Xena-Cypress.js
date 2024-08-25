@@ -20,7 +20,7 @@ module.exports = {
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
-    supportFile: 'cypress/support/index.js', // Ensure this path is correct
+    supportFile: false,//'cypress/support/index.js', // Ensure this path is correct
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     viewportWidth: 1280,
     viewportHeight: 720,
