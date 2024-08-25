@@ -16,25 +16,20 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
-      // Register the Allure writer plugin
-      allureWriter(on, config);
-
-      // Register other plugins (if any)
       require('./cypress/plugins/index.js')(on, config);
-
-      // Return the updated configuration
+      allureWriter(on, config);
       return config;
     },
-    baseUrl: "http://20.20.20.44:10000",
-    supportFile: false, // Disable support file
-    experimentalStudio: true,  // Keep this if you need the studio feature
-    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',  // Ensure this pattern matches your test files
-    viewportWidth: 1280,  // Customize viewport settings based on your application
+    baseUrl: 'http://20.20.20.44:10000',
+    supportFile: 'cypress/support/index.js',
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    viewportWidth: 1280,
     viewportHeight: 720,
-    video: false,  // Disable video recording if not needed to speed up tests
+    video: false,
     retries: {
       runMode: 2,
-      openMode: 1,
-    },
-  },
+      openMode: 1
+    }
+  }
 };
+
