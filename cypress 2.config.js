@@ -11,16 +11,24 @@
 //   },
 //   experimentalStudio: true
 // };
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
-      // If you have custom Node event listeners, keep this as it is.
-      return require('./cypress/plugins/index.js')(on, config);
+      // Register the Allure writer plugin
+      allureWriter(on, config);
+
+      // Register other plugins (if any)
+      require('./cypress/plugins/index.js')(on, config);
+
+      // Return the updated configuration
+      return config;
     },
     baseUrl: "http://20.20.20.44:10000",
-    supportFile: 'cypress/support/index.js', // Correct this to point to the correct file
+    supportFile: 'cypress/support/index.js', // Ensure this path is correct
     experimentalStudio: true,  // Keep this if you need the studio feature
-    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',  // Ensure your spec pattern matches your test files
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',  // Ensure this pattern matches your test files
     viewportWidth: 1280,  // Customize viewport settings based on your application
     viewportHeight: 720,
     video: false,  // Disable video recording if not needed to speed up tests
@@ -28,6 +36,5 @@ module.exports = {
       runMode: 2,
       openMode: 1,
     },
-   // defaultCommandTimeout: 10000,  // Set timeouts based on your application
   },
 };
