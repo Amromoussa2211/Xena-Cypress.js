@@ -1,4 +1,3 @@
-# Xena-Cypress.js
 Getting Started
 These instructions will help you set up the project on your local machine for development and testing purposes.
 
@@ -12,24 +11,31 @@ Clone the Repository
 Open your terminal.
 
 Run the following command to clone the repository:
-git clone https://github.com/Amromoussa2211/Xena-Cypress.js
 
+bash
+Copy code
+git clone https://github.com/Amromoussa2211/Xena-Cypress.js
+Navigate to the project directory:
+
+bash
+Copy code
+cd Xena-Cypress.js
 Install Dependencies
 Run the following command to install all the necessary dependencies:
 
 For JavaScript/Node.js:
 
 bash
+Copy code
 npm install
-
-
-If your project involves running tests using Cypress, here's how you can add Cypress setup instructions to your README file:
-
 Running Cypress Tests
 Cypress is used for end-to-end testing in this project. Follow these steps to set up and run Cypress tests:
 
 Install Cypress
-First, make sure Cypress is installed as a development dependency. If it is not already installed, run the following command:
+First, ensure Cypress is installed as a development dependency. If it is not already installed, run the following command:
+
+bash
+Copy code
 npm install cypress --save-dev
 Open Cypress Test Runner
 To open the Cypress Test Runner, use the following command:
@@ -65,7 +71,7 @@ To run a specific test or group of tests, you can pass the --spec flag followed 
 bash
 Copy code
 npx cypress run --spec cypress/e2e/my-test-file.cy.js
-This will run only the test file(s) specified.
+This will run only the specified test file(s).
 
 Additional Cypress Commands
 Run tests with a different browser:
