@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    environment {
+        CYPRESS_CACHE_FOLDER = "${WORKSPACE}/cypress_cache"
+        NPM_CACHE_FOLDER = "${WORKSPACE}/npm_cache"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Check out your project from the repository
+                git 'https://github.com/Amromoussa2211/Xena-Cypress.js'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install npm dependencies including Cypress
+                sh 'npm ci'
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                // Run the Cypress tests in headless mode
+                sh 'npx cypress run'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive Cypress test results (optional)
+            archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'cypress/videos/**', allowEmptyArchive: true
+
+            // Clean workspace after the build
+            cleanWs()
+        }
+    }
+}
