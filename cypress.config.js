@@ -21,13 +21,11 @@ module.exports = {
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
-    supportFile: 'cypress/support/index.js',
+    supportFile: 'cypress/support/index.js', // Ensure this path is correct
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     viewportWidth: 1280,
     viewportHeight: 720,
     video: true, // Enable video recording
-    videoUploadOnPasses: false, // Upload videos only on failures
-    videosFolder: 'cypress/videos', // Custom directory for videos
     screenshots: {
       screenshotOnRunFailure: true, // Capture screenshots on failures
     },
