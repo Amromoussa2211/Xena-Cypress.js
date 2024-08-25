@@ -11,13 +11,10 @@
 //   },
 //   experimentalStudio: true
 // };
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
-
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
-      require('./cypress/plugins/index.js')(on, config);
-      allureWriter(on, config);
+      // Your setup code
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
@@ -25,11 +22,17 @@ module.exports = {
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     viewportWidth: 1280,
     viewportHeight: 720,
-    video: false,
+    video: true, // Enable video recording
+    videoUploadOnPasses: false, // Optional: upload videos only on failures (default is true)
+    videosFolder: 'cypress/videos', // Optional: specify the directory for saving videos
+    screenshots: {
+      screenshotOnRunFailure: true,
+    },
     retries: {
       runMode: 2,
       openMode: 1
     }
   }
 };
+
 
