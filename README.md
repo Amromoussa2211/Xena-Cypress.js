@@ -97,7 +97,7 @@ Ensure the following is set up:
 2. **Set Up Pipeline from GitHub Repository:**
 
    - In the pipeline configuration, under the "Pipeline" section, choose "Pipeline script from SCM".
-   - Select "Git" as the SCM and provide the GitHub repository URL: `https://github.com/Amromoussa2211/Xena-Cypress.js`
+   - Select "Git" as the SCM and provide the GitHub repository URL: `https://github.com/Amromoussa2211/cypress`
    - Add the branch you want to build, for example `main`.
    - In the "Script Path" field, ensure it's set to `Jenkinsfile` (this is the file that defines your pipeline steps).
 
