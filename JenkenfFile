@@ -40,3 +40,7 @@ pipeline {
         }
     }
 }
+///Checkout: This stage clones your GitHub repository to the Jenkins workspace.
+///Install Dependencies: Installs all required npm dependencies, including Cypress, using npm ci.
+///Run Cypress Tests: Runs the Cypress tests in headless mode using npx cypress run.
+///Post Actions: Archives Cypress test screenshots and videos for later review and cleans up the workspace after the build.
