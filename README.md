@@ -83,6 +83,47 @@ Copy code
 npx cypress run --browser firefox
 Record test runs (if integrated with Cypress Dashboard):
 
+
+
+## Continuous Integration with Jenkins
+
+This project uses Jenkins as the CI/CD tool for running Cypress end-to-end tests. Follow the steps below to set up and run the pipeline.
+
+### Prerequisites
+
+Ensure the following is set up:
+- Jenkins installed and running on a server.
+- Access to the Jenkins dashboard.
+- Node.js and npm installed on the Jenkins machine.
+- The Jenkins "NodeJS" and "Git" plugins installed (if not already).
+
+### Jenkins Pipeline Setup
+
+1. **Create a New Jenkins Pipeline:**
+
+   - Open the Jenkins dashboard.
+   - Click on "New Item".
+   - Select "Pipeline", give it a name, and click "OK".
+
+2. **Set Up Pipeline from GitHub Repository:**
+
+   - In the pipeline configuration, under the "Pipeline" section, choose "Pipeline script from SCM".
+   - Select "Git" as the SCM and provide the GitHub repository URL: `https://github.com/Amromoussa2211/Xena-Cypress.js`
+   - Add the branch you want to build, for example `main`.
+   - In the "Script Path" field, ensure it's set to `Jenkinsfile` (this is the file that defines your pipeline steps).
+
+3. **Install Dependencies:**
+
+   The pipeline will automatically install the required npm dependencies, including Cypress, when executed.
+
+4. **Run Cypress Tests:**
+
+   After dependencies are installed, the pipeline will run Cypress tests in headless mode using the command:
+
+   ```bash
+   npx cypress run
+
+
 If your project is connected to Cypress Dashboard and you want to record the test runs:
 
 bash
