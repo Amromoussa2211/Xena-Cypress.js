@@ -10,11 +10,10 @@
 //     supportFile: 'cypress/support/commands.js',
 //   },
 //   experimentalStudio: true
-// };
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
-      // Your setup code
+      // Set up custom event listeners or plugins if needed
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
@@ -23,16 +22,18 @@ module.exports = {
     viewportWidth: 1280,
     viewportHeight: 720,
     video: true, // Enable video recording
-    videoUploadOnPasses: false, // Optional: upload videos only on failures (default is true)
-    videosFolder: 'cypress/videos', // Optional: specify the directory for saving videos
+    videoUploadOnPasses: false, // Upload videos only on failures
+    videosFolder: 'cypress/videos', // Custom directory for videos
     screenshots: {
-      screenshotOnRunFailure: true,
+      screenshotOnRunFailure: true, // Capture screenshots on failures
     },
+    experimentalStudio: true, // Enable Cypress Studio feature
     retries: {
       runMode: 2,
       openMode: 1
     }
   }
 };
+
 
 
