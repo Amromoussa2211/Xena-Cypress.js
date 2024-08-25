@@ -11,46 +11,36 @@ Clone the Repository
 Open your terminal.
 
 Run the following command to clone the repository:
+git clone https://github.com/Amromoussa2211/Cypress.js
 
-bash
-Copy code
-git clone https://github.com/Amromoussa2211/Xena-Cypress.js
 Navigate to the project directory:
-
-bash
-Copy code
-cd Xena-Cypress.js
 Install Dependencies
 Run the following command to install all the necessary dependencies:
 
 For JavaScript/Node.js:
 
-bash
-Copy code
 npm install
+
 Running Cypress Tests
 Cypress is used for end-to-end testing in this project. Follow these steps to set up and run Cypress tests:
 
 Install Cypress
 First, ensure Cypress is installed as a development dependency. If it is not already installed, run the following command:
 
-bash
-Copy code
 npm install cypress --save-dev
+
 Open Cypress Test Runner
 To open the Cypress Test Runner, use the following command:
 
-bash
-Copy code
 npx cypress open
+
 This will launch the Cypress Test Runner in interactive mode, where you can select your tests and view them as they run in a browser.
 
 Run Cypress Tests in Headless Mode
 If you want to run the Cypress tests in headless mode (without opening the browser UI), use the following command:
 
-bash
-Copy code
 npx cypress run
+
 This will execute all the tests in the specified browser, typically Chrome by default, and output the results to the terminal.
 
 Configure Cypress (if needed)
@@ -68,9 +58,8 @@ module.exports = {
 Running Specific Tests
 To run a specific test or group of tests, you can pass the --spec flag followed by the path to the test file:
 
-bash
-Copy code
-npx cypress run --spec cypress/e2e/my-test-file.cy.js
+npx cypress run --spec cypress/e2e/redytotest.cy.js
+
 This will run only the specified test file(s).
 
 Additional Cypress Commands
