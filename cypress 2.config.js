@@ -10,10 +10,13 @@
 //     supportFile: 'cypress/support/commands.js',
 //   },
 //   experimentalStudio: true
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
       // Set up custom event listeners or plugins if needed
+      allureWriter(on, config);
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
@@ -34,6 +37,7 @@ module.exports = {
     }
   }
 };
+
 
 
 
