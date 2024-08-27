@@ -19,6 +19,7 @@ import 'cypress-localstorage-commands'
 
 require('cypress-xpath');
 import '@shelex/cypress-allure-plugin';
+import "allure-cypress/commands";
 
 
 

@@ -11,17 +11,31 @@
 //   },
 //   experimentalStudio: true
 // };
+
+const { defineConfig } = require("cypress");
+const { allureCypress } = require("allure-cypress/reporter");
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
-module.exports = {
+module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // Set up custom event listeners or plugins if needed
+      // Set up the Allure Cypress reporter
+      allureCypress(on, {
+        resultsDir: "./allure-results",
+        links: [
+          { type: "issue", urlTemplate: "https://issues.example.com/%s" },
+          { type: "tms", urlTemplate: "https://tms.example.com/%s" },
+        ],
+      });
+
+      // Set up the Allure plugin writer
       allureWriter(on, config);
+
+      // Return the modified configuration
       return config;
     },
     baseUrl: 'http://20.20.20.44:10000',
-    supportFile: false,// 'cypress/support/index.js', // Ensure this path is correct
+    supportFile: false, // Disable support file or update to 'cypress/support/index.js' if needed
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     viewportWidth: 1280,
     viewportHeight: 720,
@@ -35,4 +49,4 @@ module.exports = {
       openMode: 1
     }
   }
-};
+});

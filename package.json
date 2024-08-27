@@ -16,6 +16,8 @@
     "cypress-xpath": "^2.0.0"
   },
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^2.40.2"
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.30.0",
+    "allure-cypress": "^3.0.0-beta.10"
   }
 }
