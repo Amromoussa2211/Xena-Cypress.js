@@ -34,6 +34,9 @@ module.exports = defineConfig({
       // Return the modified configuration
       return config;
     },
+     env: {
+      allureReuseAfterSpec: true,
+    },
     baseUrl: 'http://20.20.20.44:10000',
     supportFile: false, // Disable support file or update to 'cypress/support/index.js' if needed
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
