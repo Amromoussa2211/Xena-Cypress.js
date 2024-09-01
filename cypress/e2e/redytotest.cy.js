@@ -1,6 +1,8 @@
 ///// <reference types="Cypress" />
 import 'cypress-xpath';
 import 'cypress-localstorage-commands';
+import '@shelex/cypress-allure-plugin';
+import "allure-cypress/commands";
 
 describe('My Test Suite', () => {
   beforeEach(() => {
