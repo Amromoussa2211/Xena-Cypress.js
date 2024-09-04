@@ -112,7 +112,8 @@ Ensure the following is set up:
    ```bash
    npx cypress run
    or
-   npm run test //after navigate in forder directory
+   npm run test:allure  //after navigate in forder directory
+   
 
 
 If your project is connected to Cypress Dashboard and you want to record the test runs:
