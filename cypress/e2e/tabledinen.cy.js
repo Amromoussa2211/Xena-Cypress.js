@@ -1,7 +1,10 @@
 import 'cypress-xpath';
 import 'cypress-localstorage-commands';
 import '@shelex/cypress-allure-plugin';
-import "allure-cypress/commands";
+import "allure-cypress";
+
+
+
 
 describe('Setup and Shared Storage', () => {
   beforeEach(() => {
