@@ -22,6 +22,7 @@ module.exports = defineConfig({
       // Set up the Allure Cypress reporter
       allureCypress(on, {
         resultsDir: "./allure-results",
+        debug: true,  // Enable debug logs
         links: [
           { type: "issue", urlTemplate: "https://issues.example.com/%s" },
           { type: "tms", urlTemplate: "https://tms.example.com/%s" },
@@ -34,7 +35,7 @@ module.exports = defineConfig({
       // Return the modified configuration
       return config;
     },
-     env: {
+    env: {
       allureReuseAfterSpec: true,
     },
     baseUrl: 'http://20.20.20.44:10000',
