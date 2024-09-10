@@ -72,10 +72,91 @@ describe('My Test Suite', () => {
       });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+    function checkDateAndPerformActions() {
+      const currentDate = new Date().toISOString().split('T')[0]; // Get the current date in YYYY-MM-DD format
+    
+      // Get the element containing the date and check if it matches the current date
+      cy.get('p._37Ci_jdsmdxWPwC4JmBOFN').invoke('text').then((dateText) => {
+        cy.log('Date Text from Page:', dateText.trim());
+        cy.log('Current Date:', currentDate);
+    
+        if (dateText.trim() === currentDate) {
+          cy.log('Current date matches');
+        } else {
+          cy.log('Date does not match, performing actions');
+          // Click on the 'End Shift' button
+          cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('End Shift').click();
+    
+          // Wait for 30 seconds (30000ms)
+          cy.wait(30000);
+    
+          // Click on the 'End Day' text
+          cy.get('p').contains('End Day').click();
+    
+          // Click on the button with specific styles
+         // cy.get('[style="opacity: 1; border: 1px solid rgb(215, 63, 124);"]').click();
+    
+          // Click on the close button and then the icon
+          cy.get('span.ant-modal-close-x').click(); // Click on the span element directly
+        //  cy.get('.anticon > svg').click();
+    
+          // Click on the button with specific styles
+        //  cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+         // cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"] > p').click();
+    
+          // Wait for the button to change to 'Start Day'
+          cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('Start Day', { timeout: 10000 }).should('be.visible').then(($button) => {
+            // Check if the 'Start Day' button exists and is active
+            const borderColor = $button.css('border-color');
+    
+            // Check if the button is active based on its border color or other styles
+            if (borderColor === 'rgba(112, 112, 112, 0.46)') {
+              cy.wrap($button).click(); // Click the 'Start Day' button if it is active
+              cy.log('Clicked on "Start Day" button');
+            } else {
+              cy.log('The "Start Day" button is not active.');
+            }
+          });
+    
+          // Check for the 'Start Shift' button
+          cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('Start Shift', { timeout: 10000 }).then(($button) => {
+            if ($button.length > 0) {
+              // Click on the 'Start Shift' button
+              cy.wrap($button).click();
+              cy.log('Clicked on "Start Shift" button');
+            } else {
+              cy.log('The "Start Shift" button was not found.');
+            }
+          });
+    
+          // Wait for another 30 seconds
+          cy.wait(30000);
+    
+          // Click the 'End Shift' button again
+         // cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('End Shift').click();
+        }
+      });
+    }
+    
+    // Usage in a test case
+    describe('Check Date and Perform Actions', () => {
+      it('Should check date and click buttons based on conditions', () => {
+        cy.visit('http://20.20.20.44:10000');
+        cy.get('input[name="username"]', { timeout: 1000000 }).click({ force: true }).type('AMR', { force: true }).should('have.value', 'AMR');
+        cy.get('input[name="password"]', { timeout: 1000000 }).click({ force: true }).type('AMR{ENTER}', { force: true }).should('have.value', 'AMR');
+        cy.wait(3000);
+        cy.get('.fa-th > path').click();
+        cy.get('._2h2bmgifUy7nEVXJSUH7AQ > :nth-child(1) > p').click();
+        checkDateAndPerformActions(); // Call the function
+        /* ==== Generated with Cypress Studio ==== */
+        cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+        cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+        /* ==== End Cypress Studio ==== */
+      });
+    });
+    
 
-
-   
-  
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   describe('takeawayorder', () => {
     it('Fast Cash', () => {
