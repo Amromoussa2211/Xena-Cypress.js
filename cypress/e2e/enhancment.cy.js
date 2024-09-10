@@ -155,8 +155,22 @@ describe('My Test Suite', () => {
         cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('Start Shift').click();
         /* ==== End Cypress Studio ==== */
       });
-    });
-    
+      it('Fail to start day automaticly', () => {
+        cy.visit('http://20.20.20.44:10000');
+        cy.get('input[name="username"]', { timeout: 1000000 }).click({ force: true }).type('AMR', { force: true }).should('have.value', 'AMR');
+        cy.get('input[name="password"]', { timeout: 1000000 }).click({ force: true }).type('AMR{ENTER}', { force: true }).should('have.value', 'AMR');
+        cy.wait(3000);
+        cy.get('.fa-th > path').click();
+        cy.get('._2h2bmgifUy7nEVXJSUH7AQ > :nth-child(1) > p').click();
+        /* ==== Generated with Cypress Studio ==== */
+       
+        cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();//start day
+        cy.wait(2000)
+        cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('Start Shift', { timeout: 10000 })//start shift
+        /* ==== End Cypress Studio ==== */
+      });
+  });
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   describe('takeawayorder', () => {
