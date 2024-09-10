@@ -65,73 +65,73 @@ describe('Setup and Shared Storage', () => {
           // Step 2: Find a record with "is_open": true
           const recordToDelete = data.find(record => record.is_open === true);
   
-          if (recordToDelete) {
-            const recordId = recordToDelete.id;
-            const deleteUrl = `${baseUrl}${recordId}/`;  // Construct the delete URL
+    //       if (recordToDelete) {
+    //         const recordId = recordToDelete.id;
+    //         const deleteUrl = `${baseUrl}${recordId}/`;  // Construct the delete URL
   
-            // Step 3: Send a DELETE request to delete the record
-            cy.request({
-              method: 'DELETE',
-              url: deleteUrl,
-              failOnStatusCode: false  // Handle cases where the record might already be deleted or other issues
-            }).then((deleteResponse) => {
-              // Log the response for debugging
-              cy.log(`Delete Response Status: ${deleteResponse.status}`);
-              cy.log(`Delete Response Body: ${JSON.stringify(deleteResponse.body)}`);
+    //         // Step 3: Send a DELETE request to delete the record
+    //         cy.request({
+    //           method: 'DELETE',
+    //           url: deleteUrl,
+    //           failOnStatusCode: false  // Handle cases where the record might already be deleted or other issues
+    //         }).then((deleteResponse) => {
+    //           // Log the response for debugging
+    //           cy.log(`Delete Response Status: ${deleteResponse.status}`);
+    //           cy.log(`Delete Response Body: ${JSON.stringify(deleteResponse.body)}`);
   
-              // Check the status code of the DELETE response
-              if (deleteResponse.status === 204) {
-                cy.log(`Record with id ${recordId} deleted successfully.`);
-              } else if (deleteResponse.status === 404) {
-                cy.log(`Record with id ${recordId} not found. It may have been deleted already.`);
-              } else if (deleteResponse.status === 403) {
-                cy.log(`Permission denied while trying to delete record with id ${recordId}.`);
-              } else {
-                // Log unexpected status codes
-                cy.log(`Failed to delete record. Status code: ${deleteResponse.status}`);
-                cy.log(`Response body: ${JSON.stringify(deleteResponse.body)}`);
-              }
-            });
-          } else {
-            cy.log("No record found with 'is_open': true");
-          }
-        } else {
-          cy.log('Response is not an array. Check the API response format.');
-        }
-      });
-    });
+    //           // Check the status code of the DELETE response
+    //           if (deleteResponse.status === 204) {
+    //             cy.log(`Record with id ${recordId} deleted successfully.`);
+    //           } else if (deleteResponse.status === 404) {
+    //             cy.log(`Record with id ${recordId} not found. It may have been deleted already.`);
+    //           } else if (deleteResponse.status === 403) {
+    //             cy.log(`Permission denied while trying to delete record with id ${recordId}.`);
+    //           } else {
+    //             // Log unexpected status codes
+    //             cy.log(`Failed to delete record. Status code: ${deleteResponse.status}`);
+    //             cy.log(`Response body: ${JSON.stringify(deleteResponse.body)}`);
+    //           }
+    //         });
+    //       } else {
+    //         cy.log("No record found with 'is_open': true");
+    //       }
+    //     } else {
+    //       cy.log('Response is not an array. Check the API response format.');
+    //     }
+    //   });
+    // });
   
   
-        it('OPENDAY ', () => {
-            cy.visit('http://20.20.20.44:10000');
-            cy.get('input[name="username"]', { timeout: 1000000 })
-              .click({ force: true })
-              .type('AMR', { force: true })
-              .should('have.value', 'AMR');
+    //     it('OPENDAY ', () => {
+    //         cy.visit('http://20.20.20.44:10000');
+    //         cy.get('input[name="username"]', { timeout: 1000000 })
+    //           .click({ force: true })
+    //           .type('AMR', { force: true })
+    //           .should('have.value', 'AMR');
   
-            cy.get('input[name="password"]', { timeout: 1000000 })
-              .click({ force: true })
-              .type('AMR{ENTER}', { force: true })
-              .should('have.value', 'AMR');
+    //         cy.get('input[name="password"]', { timeout: 1000000 })
+    //           .click({ force: true })
+    //           .type('AMR{ENTER}', { force: true })
+    //           .should('have.value', 'AMR');
   
-            cy.wait(6000);
-            cy.get('.fa-th > path')
-    .click()
-    .then(() => {
-      cy.get('._2h2bmgifUy7nEVXJSUH7AQ > :nth-child(1) > p')
-        .click()
-        // .then(() => {
-          // cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"] > p')
-          //   .should('be.visible')
-          //   .click();
-        // });
-    });
-            // cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
-            cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
-            cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
-            cy.get('._1QQBVQeKIQujoONPLwNmF-').should('be.visible');
-        });
-      });
+    //         cy.wait(6000);
+    //         cy.get('.fa-th > path')
+    // .click()
+    // .then(() => {
+    //   cy.get('._2h2bmgifUy7nEVXJSUH7AQ > :nth-child(1) > p')
+    //     .click()
+    //     // .then(() => {
+    //       // cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"] > p')
+    //       //   .should('be.visible')
+    //       //   .click();
+    //     // });
+    // });
+    //         // cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+    //         cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+    //         cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+    //         cy.get('._1QQBVQeKIQujoONPLwNmF-').should('be.visible');
+    //     });
+    //   });
  
 
   describe('takeawayorder', () => {
