@@ -151,7 +151,8 @@ describe('My Test Suite', () => {
         checkDateAndPerformActions(); // Call the function
         /* ==== Generated with Cypress Studio ==== */
         cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
-        cy.get('[style="opacity: 1; border: 1px solid rgba(112, 112, 112, 0.46);"]').click();
+        cy.wait(2000)
+        cy.get('button._6hGFO8l-njNJpU8-_bgJT').contains('Start Shift').click();
         /* ==== End Cypress Studio ==== */
       });
     });
