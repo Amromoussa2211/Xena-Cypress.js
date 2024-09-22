@@ -666,21 +666,36 @@ it('FIXORDER * Item NOTES', function() {
 
       /* ==== End Cypress Studio ==== */
       /* ==== Generated with Cypress Studio ==== */
-      cy.get('._2YU4VmNyoUiS5WxObMXoCR > .svg-inline--fa').click();
-      cy.get('._2HBy__5IfQrF6CGJqU-4rA > :nth-child(4) > :nth-child(2)').click();
-      cy.get('._3qnKo9TsZEv9RBcgjSnpQW > :nth-child(4)').click();
+     
+      /* ==== End Cypress Studio ==== */
+    });
+    it(' Cash CATRING ORDER', () => {
+      cy.visit('http://20.20.20.44:10000');
+      cy.get('input[name="username"]', { timeout: 1000000 }).click({force: true}).type('AMR', { force: true }).should('have.value','AMR')
+      cy.get('input[name="password"]', { timeout: 1000000 }).click({force: true}).type('AMR{ENTER}', { force: true }).should('have.value','AMR')
+      cy.get('._2YU4VmNyoUiS5WxObMXoCR > .svg-inline--fa',{ timeout: 40000 }).click();
+      cy.get('._2HBy__5IfQrF6CGJqU-4rA > :nth-child(4) > :nth-child(2)',{ timeout: 10000 }).click();
+      // Target the button with the dollar-sign icon by class
+
+      
+      cy.log('First dollar sign button clicked!');    
+    
+      cy.wait(50000)
+      cy.get('#root > section > div:nth-child(1) > section > div > div:nth-child(2) > div._3_jAOxY7ZMs8Xw76oqtd2x > div._2oRNFJFsl8dEVcWuaWN4SG > table > tbody > tr:nth-child(1) > td._1-tIV5LC1RTOES6sBkCiZj > div > button',{timeout:40000})
+  .each(($el, index) => {
+    if (index === 3) { // index is zero-based, so 3 is the fourth button
+      cy.wrap($el).click();
+    }
+  });
+    
       cy.get('.czv1cBUdAfpK7hU9RfMZ4 > input').uncheck();
-      cy.get('._2akHWSeJOFph9vZmOQras2').click();
       cy.get('._1BUcUf1ObiWkVgo0qFuCs5 > :nth-child(1) > div > :nth-child(1)').click();
       cy.get('._2akHWSeJOFph9vZmOQras2').click();
       /* ==== End Cypress Studio ==== */
     });
-    it(' Cash CATRING ORDER', () => {
-      cy.visit('http://20.20.20.44:10000/#/new_cat');
-      cy.get('input[name="username"]', { timeout: 1000000 }).click({force: true}).type('AMR', { force: true }).should('have.value','AMR')
-      cy.get('input[name="password"]', { timeout: 1000000 }).click({force: true}).type('AMR{ENTER}', { force: true }).should('have.value','AMR')
-  });
 });
+
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
