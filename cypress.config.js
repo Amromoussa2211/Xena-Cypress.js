@@ -50,7 +50,7 @@ module.exports = defineConfig({
     experimentalStudio: true, // Enable Cypress Studio feature
     retries: {
       runMode: 2,
-      openMode: 1
+      openMode: 0
     }
   }
 });
